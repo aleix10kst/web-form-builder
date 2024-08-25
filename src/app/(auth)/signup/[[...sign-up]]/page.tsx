@@ -1,11 +1,12 @@
 import { Metadata } from "next"
 import Link from "next/link"
+import { SignUp } from "@clerk/nextjs"
 
 import { siteConfig } from "@/config/site"
 import { Shell } from "@/components/shell"
 
-import { OAuthSignIn } from "../_components/oauth-signin"
-import { SignUpForm } from "../_components/signup-form"
+import { OAuthSignIn } from "../../_components/oauth-signin"
+import { SignUpForm } from "../../_components/signup-form"
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -33,7 +34,8 @@ export default async function SignInPage() {
             </span>
           </div>
         </div>
-        <SignUpForm />
+        // <SignUpForm />
+        <SignUp />
       </div>
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="text-sm text-muted-foreground">

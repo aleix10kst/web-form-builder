@@ -7,10 +7,9 @@ type LobbyLayoutProps = {
 
 export default async function LobbyLayout({ children }: LobbyLayoutProps) {
   return (
-    <div className="relative flex min-h-screen flex-col">
+    <div className="flex h-full max-h-screen min-h-screen min-w-full flex-col bg-background">
       <SiteHeader />
-      <main className="flex-1">{children}</main>
-      <SiteFooter />
+      <main className="flex w-full flex-grow">{children}</main>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { UserButton } from "@clerk/nextjs"
 import { GitHubLogoIcon, MixIcon } from "@radix-ui/react-icons"
 
 import { siteConfig } from "@/config/site"
@@ -10,13 +11,16 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center">
-        <Link href="/" className="mr-2 flex items-center md:mr-6 md:space-x-2">
+        <Link
+          href="/"
+          className="mr-2 flex items-center bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent md:mr-6 md:space-x-2"
+        >
           <MixIcon className="size-4" aria-hidden="true" />
           <span className="hidden font-bold md:inline-block">
             {siteConfig.name}
           </span>
         </Link>
-        <nav className="flex flex-1 items-center md:justify-end">
+        <nav className="flex flex-1 items-center gap-x-4 md:justify-end">
           <Button variant="ghost" size="icon" className="size-8" asChild>
             <Link
               aria-label="GitHub repo"
@@ -28,6 +32,7 @@ export function SiteHeader() {
             </Link>
           </Button>
           <ModeToggle />
+          <UserButton afterSignOutUrl="/sign-in" />
         </nav>
       </div>
     </header>
